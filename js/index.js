@@ -12,11 +12,11 @@ function loadGua(guaXiang) {
                 
                 // update yao
                 for (var y = 1; y <= 6; ++y) {
-                    $('#yao' + y + ' .yinyang').removeClass('yin yang');
-                    if (guaXiang[y - 1] === '1') {
-                        $('#yao' + y + ' .yinyang').addClass('yang');
-                    } else {
-                        $('#yao' + y + ' .yinyang').addClass('yin');
+                    var yao = $('#yao' + y + ' .yinyang');
+                    if (yao.hasClass('yin') && guaXiang[y - 1] === '1') {
+                        yao.removeClass('yin', 1000).addClass('yang');
+                    } else if (yao.hasClass('yang') && guaXiang[y - 1] === '0') {
+                        yao.addClass('yin', 1000).removeClass('yang');
                     }
                 }
                 
@@ -24,6 +24,7 @@ function loadGua(guaXiang) {
                 $('#back-title').text(name);
                 $('#gua-number').text(i + 1);
                 $('#gua-name').text(getGuaName(guaXiang, name));
+                $('#gua-detail').text(gb.gua[i]['gua-detail']);
                 return true;
             }
         }
@@ -79,6 +80,7 @@ $(document).ready(function () {
         guaXiang = guaXiang.substr(0, id) + changeBit + guaXiang.substr(id + 1);
         loadGua(guaXiang);
         
+        location.hash = guaXiang;
         $('.yao, #back-title').removeClass('unhover');
         $('#yao-detail').hide();
     });
@@ -88,7 +90,15 @@ $(document).ready(function () {
         dataType: 'json',
         success: function(data) {
             gb.gua = data.gua;
-            loadGua('000011');
+            var hash = location.hash.replace('#', '');
+            if (hash === '') {
+                loadGua('111111');
+            } else {
+                if (!loadGua(hash)) {
+                    location.hash = '';
+                    loadGua('111111');
+                }
+            }
         },
         error: function(e) {
             alert('数据获取失败，请刷新重试！');

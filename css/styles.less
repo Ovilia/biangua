@@ -1,10 +1,10 @@
 @clr-primary: #468e8d;
 @clr-light: #66a09f;
-@clr-lightest: #fff;
+@clr-lightest: #efefef;
 @clr-dark: #105150;
 
-@body-pd: 20px;
-@font-sz: 20px;
+@body-pd: 16px;
+@font-sz: 18px;
 @yao-w: 300px;
 @yao-h: 40px;
 @yao-mg: 20px;
@@ -18,7 +18,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition-duration: 0.5s;
 }
 
 html {
@@ -32,30 +31,121 @@ body {
     height: 100%;
     overflow: hidden;
     font-family: '微软雅黑';
+    font-size: @font-sz;
     padding: @body-pd;
+}
+
+p {
+    margin: 8px 0;
 }
 
 #back-title {
     position: absolute;
-    bottom: -80px;
-    right: @body-pd;
+    bottom: -72px;
+    right: 0;
     font-size: 600px;
     color: @clr-light;
     cursor: default;
+    transition-duration: 1s;
     
     &.unhover {
-        color: @clr-primary;
+        opacity: 0.25;
     }
 }
 
 #page-title {
     color: @clr-light;
-    font-size: 25px;
     cursor: default;
+    transition-duration: 0.5s;
+    display: inline-block;
+    
+    a {
+        color: @clr-light;
+        transition-duration: 1s;
+    }
     
     &:hover {
         color: @clr-lightest;
+        
+        a {
+            color: @clr-lightest;
+            
+            &:hover {
+                color: @clr-dark;
+            }
+        }
+        
+        .social {
+            opacity: 1;
+        }
+        
+        #page-title-more {
+            display: block;
+        }
     }
+}
+
+.social {
+    background: url('../../blog/social.png');
+    background-color: @clr-light;
+    width: 40px;
+    height: 40px;
+    transition: 1s;
+    display: inline-block;
+    margin-right: 3px;
+    border-bottom: none;
+    border-radius: 20px;
+    opacity: 0.25;
+    
+    &:hover {
+        background-color: @clr-dark;
+        border-radius: 0;
+    }
+}
+
+.social-twitter {
+    background-position: 0 0;
+}
+
+.social-facebook {
+    background-position: -40px 0;
+}
+
+.social-google {
+    background-position: -80px 0;
+}
+
+.social-linkedin {
+    background-position: -120px 0;
+}
+
+.social-weibo {
+    background-position: -160px 0;
+}
+
+.social-digg {
+    background-position: 0 40px;
+}
+
+.social-douban {
+    background-position: -40px 40px;
+}
+
+.social-reddit {
+    background-position: -80px 40px;
+}
+
+.social-stumble {
+    background-position: -120px 40px;
+}
+
+.social-github {
+    background-position: -160px 40px;
+}
+
+#page-title-more {
+    display: none;
+    font-size: 12px;
 }
 
 #gua-title {
@@ -65,19 +155,20 @@ body {
     
     font-size: 60px;
     color: @clr-dark;
-    
-    #gua-name {
-        cursor: pointer;
-    }
+    cursor: default;
+    transition-duration: 0.5s;
     
     #gua-detail {
-        display: none;
+        color: @clr-dark;
         font-size: @font-sz;
+        transition-duration: 0.5s;
     }
     
     &:hover {
+        color: @clr-lightest;
+        
         #gua-detail {
-            display: inline;
+            color: @clr-lightest;
         }
     }
 }
@@ -99,6 +190,7 @@ body {
         height: @yao-h;
         background-color: @clr-lightest;
         cursor: pointer;
+        transition-duration: 1s;
         
         &.yao-mg {
             margin: @yao-mg 0;
@@ -106,16 +198,27 @@ body {
         
         &.unhover {
             background: @clr-light;
+            
+            .yang {
+                background: @clr-light;
+            }
+        }
+        
+        .yinyang {
+            transition-duration: 1s;
+            position: relative;
+            left: 50%;
+            margin-left: -@yin-w / 2;
+            width: @yin-w;
+            height: @yao-h;
+        }
+        
+        .yang {
+            background-color: @clr-lightest;
         }
         
         .yin {
-            width: @yin-w;
-            height: @yao-h;
             background-color: @clr-primary;
-            left: 50%;
-            position: relative;
-            margin-left: -@yin-w / 2;
-            transition: none;
         }
     }
 }
@@ -128,5 +231,5 @@ body {
     margin-left: @yao-w / 2 + @gua-detail-mg;
     min-height: @yao-h;
     color: @clr-lightest;
-    padding: 8px 0;
+    padding: 4px 0;
 }
