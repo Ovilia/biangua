@@ -30,6 +30,7 @@ function loadGua(guaXiang) {
         }
     }
     console.error('no gua:', guaXiang);
+    _gaq.push(['_trackEvent', 'BianGua', 'No Gua', guaXiang]);
     return false;
 }
 
@@ -102,6 +103,7 @@ $(document).ready(function () {
         },
         error: function(e) {
             alert('数据获取失败，请刷新重试！');
+            _gaq.push(['_trackEvent', 'BianGua', 'No JSON', e.toString()]);
         }
     });
 });
