@@ -1,0 +1,110 @@
+@clr-primary: #468e8d;
+@clr-light: #66a09f;
+@clr-lightest: #fff;
+@clr-dark: #105150;
+
+@body-pd: 20px;
+@font-sz: 20px;
+@yao-w: 300px;
+@yao-h: 40px;
+@yao-mg: 20px;
+@gua-half-h: @yao-h * 3 + @yao-mg * 2;
+@gua-half-mg: 40px;
+@gua-h: @gua-half-h * 2 + @gua-half-mg;
+@yin-w: 12px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition-duration: 0.5s;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: @clr-primary;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: '微软雅黑';
+    padding: @body-pd;
+}
+
+#back-title {
+    position: absolute;
+    bottom: -80px;
+    right: @body-pd;
+    font-size: 600px;
+    color: @clr-light;
+    cursor: default;
+}
+
+#page-title {
+    color: @clr-light;
+    font-size: 25px;
+    cursor: default;
+    
+    &:hover {
+        color: @clr-lightest;
+    }
+}
+
+#gua-title {
+    position: absolute;
+    left: @body-pd;
+    bottom: @body-pd;
+    
+    font-size: 60px;
+    color: @clr-dark;
+    
+    #gua-name {
+        cursor: pointer;
+    }
+    
+    #gua-detail {
+        display: none;
+        font-size: @font-sz;
+    }
+    
+    &:hover {
+        #gua-detail {
+            display: inline;
+        }
+    }
+}
+
+#gua {
+    width: @yao-w;
+    height: @gua-h;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -@gua-h / 2;
+    margin-left: -@yao-w / 2;
+    
+    .gua-split {
+        height: @gua-half-mg;
+    }
+    
+    .yao {
+        height: @yao-h;
+        background-color: @clr-lightest;
+        
+        &.yao-mg {
+            margin: @yao-mg 0;
+        }
+        
+        .yin {
+            width: @yin-w;
+            height: @yao-h;
+            background-color: @clr-primary;
+            left: 50%;
+            position: relative;
+            margin-left: -@yin-w / 2;
+        }
+    }
+}
