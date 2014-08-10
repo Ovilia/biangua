@@ -12,6 +12,7 @@
 @gua-half-mg: 40px;
 @gua-h: @gua-half-h * 2 + @gua-half-mg;
 @yin-w: 12px;
+@gua-detail-mg: 20px;
 
 * {
     box-sizing: border-box;
@@ -34,6 +35,10 @@ body {
     padding: @body-pd;
 }
 
+p {
+    margin: 8px 0;
+}
+
 #back-title {
     position: absolute;
     bottom: -80px;
@@ -41,6 +46,10 @@ body {
     font-size: 600px;
     color: @clr-light;
     cursor: default;
+    
+    &.unhover {
+        color: @clr-primary;
+    }
 }
 
 #page-title {
@@ -98,6 +107,10 @@ body {
             margin: @yao-mg 0;
         }
         
+        &.unhover {
+            background: @clr-light;
+        }
+        
         .yin {
             width: @yin-w;
             height: @yao-h;
@@ -107,4 +120,14 @@ body {
             margin-left: -@yin-w / 2;
         }
     }
+}
+
+#yao-detail {
+    display: none;
+    position: absolute;
+    left: 50%;
+    right: @body-pd;
+    margin-left: @yao-w / 2 + @gua-detail-mg;
+    min-height: @yao-h;
+    color: @clr-lightest;
 }
