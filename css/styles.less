@@ -35,10 +35,6 @@ body {
     padding: @body-pd;
 }
 
-p {
-    margin: 8px 0;
-}
-
 #back-title {
     position: absolute;
     bottom: -80px;
@@ -95,13 +91,14 @@ p {
     margin-top: -@gua-h / 2;
     margin-left: -@yao-w / 2;
     
-    .gua-split {
-        height: @gua-half-mg;
+    .yao-split {
+        margin-bottom: @gua-half-mg;
     }
     
     .yao {
         height: @yao-h;
         background-color: @clr-lightest;
+        cursor: pointer;
         
         &.yao-mg {
             margin: @yao-mg 0;
@@ -118,6 +115,7 @@ p {
             left: 50%;
             position: relative;
             margin-left: -@yin-w / 2;
+            transition: none;
         }
     }
 }
@@ -130,4 +128,5 @@ p {
     margin-left: @yao-w / 2 + @gua-detail-mg;
     min-height: @yao-h;
     color: @clr-lightest;
+    padding: 8px 0;
 }
