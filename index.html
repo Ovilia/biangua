@@ -14,46 +14,53 @@
         </script>
         
         <meta charset="utf-8" />
-        <link rel="shortcut icon" href="../blog/img/me.ico" />
         <title>变卦·易经64卦</title>
         
         <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
-        <script src="js/less-1.7.3.min.js" type="text/javascript"></script>
-        
-        <script src="../blog/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-        <script src="js/index.js" type="text/javascript"></script>
+        <script src="js/lib/less-1.7.3.min.js" type="text/javascript"></script>
+        <script src="js/lib/jquery-2.1.1.min.js" type="text/javascript"></script>
     </head>
-    <body>
-        <div id="page-title">
-            <h2>变卦·易经64卦</h2>
-            <p>By <a href="http://zhangwenli.com" target="_blank">Wenli Zhang</a> Twitter: <a href="https://twitter.com/OviliaZhang" target="_blank">@Ovilia</a></p>
-            <p>
-                <a href="https://twitter.com/intent/tweet?text=Fancy Website with CSS and JavaScript for Chinese 8 Gua&url=http://goo.gl/3S8z8t&original_referer=http://zhangwenli.com/biangua&via=OviliaZhang&hashtags=CSS,JavaScript,webdesign,八卦,易经" class="social social-twitter" target="_blank"></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?t=Fancy Website with CSS and JavaScript for Chinese 8 Gua&u=http://zhangwenli.com/biangua/" class="social social-facebook" target="_blank"></a>
-                <a href="https://plus.google.com/share?url=http://zhangwenli.com/biangua" class="social social-google" target="_blank"></a>
-                <a href="http://www.linkedin.com/shareArticle?mini=true&title=CSS JavaScript酷炫案例：变卦，易经64卦&url=http://zhangwenli.com/biangua&source=http%3a%2f%2fzhangwenli.com" class="social social-linkedin" target="_blank"></a>
-                <a href="http://v.t.sina.com.cn/share/share.php?title=%40Ovilia允执厥中+的CSS JavaScript 酷炫案例：变卦，易经64卦&url=http://zhangwenli.com/biangua&pic=http://zhangwenli.com/biangua/screen-capture.png" class="social social-weibo" target="_blank"></a>
-                <a href="http://shuo.douban.com/!service/share?href=http://zhangwenli.com/biangua&name=http://zhangwenli.com/biangua&image=http://zhangwenli.com/biangua/screen-capture.png" class="social social-douban" target="_blank"></a>
-            </p>
-            <div id="page-title-more">
-                <p>了解更多：<a href="http://zhangwenli.com/blog/2014/08/11/how-i-made-biangua" target="_blank">关于本网页的博客</a></p>
-                <p>有Bug？<a href="https://github.com/Ovilia/biangua/issues" target="_blank">前往GitHub</a>告诉我</p>
+    <body ng-app="gua">
+        <div ng-controller="guaMainCtrl">
+            <div class="page-title">
+                <h2>变卦·易经64卦</h2>
+                <p>By <a href="http://zhangwenli.com" target="_blank">Wenli Zhang</a> Twitter: <a href="https://twitter.com/OviliaZhang" target="_blank">@Ovilia</a></p>
+                <p>
+                    <a href="https://twitter.com/intent/tweet?text=Fancy Website with CSS and JavaScript for Chinese 8 Gua&url=http://goo.gl/3S8z8t&original_referer=http://zhangwenli.com/biangua&via=OviliaZhang&hashtags=CSS,JavaScript,webdesign,八卦,易经" class="social social-twitter" target="_blank"></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?t=Fancy Website with CSS and JavaScript for Chinese 8 Gua&u=http://zhangwenli.com/biangua/" class="social social-facebook" target="_blank"></a>
+                    <a href="https://plus.google.com/share?url=http://zhangwenli.com/biangua" class="social social-google" target="_blank"></a>
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&title=CSS JavaScript酷炫案例：变卦，易经64卦&url=http://zhangwenli.com/biangua&source=http%3a%2f%2fzhangwenli.com" class="social social-linkedin" target="_blank"></a>
+                    <a href="http://v.t.sina.com.cn/share/share.php?title=%40Ovilia允执厥中+的CSS JavaScript 酷炫案例：变卦，易经64卦&url=http://zhangwenli.com/biangua&pic=http://zhangwenli.com/biangua/screen-capture.png" class="social social-weibo" target="_blank"></a>
+                    <a href="http://shuo.douban.com/!service/share?href=http://zhangwenli.com/biangua&name=http://zhangwenli.com/biangua&image=http://zhangwenli.com/biangua/screen-capture.png" class="social social-douban" target="_blank"></a>
+                </p>
+                <div class="page-title-more">
+                    <p>了解更多：<a href="http://zhangwenli.com/blog/2014/08/11/how-i-made-biangua" target="_blank">关于本网页的博客</a></p>
+                    <p>有Bug？<a href="https://github.com/Ovilia/biangua/issues" target="_blank">前往GitHub</a>告诉我</p>
+                </div>
             </div>
+            <div class="back-title">{{guaData.gua_name}}</div>
+            <div class="gua-title">
+                <span class="gua-number">{{guaData.gua_number}}.</span>
+                <span class="gua-name">{{guaData.gua_6yao_name}}</span>
+                <span class="gua-detail">{{guaData.gua_detail}}</span>
+            </div>
+            <ul class="gua">
+                <li class="yao"
+                    ng-class="{ 'yao-split': $index==2, unhover: hideYao[$index] }"
+                    ng-repeat="yao in guaData.yao"
+                    ng-mouseenter="highLightYao($index, true)"
+                    ng-mouseleave="highLightYao($index, false)"
+                    ng-click="changeGua($index)">
+                    <div class="yinyang"
+                         ng-class="{ yin: yao.num==0, yang: yao.num==1 }"
+                         >
+                    </div>
+                    <div class="yao-detail"
+                         ng-show="showYao[$index]">{{yao.detail}}</div>
+                </li>
+            </ul>
         </div>
-        <div id="back-title"></div>
-        <div id="gua-title">
-            <span id="gua-number"></span>.<span id="gua-name"></span>
-            <span id="gua-detail"></span>
-        </div>
-        <div id="gua">
-            <div id="yao6" class="yao"><div class="yinyang yang"></div></div>
-            <div id="yao5" class="yao yao-mg"><div class="yinyang yang"></div></div>
-            <div id="yao4" class="yao yao-split"><div class="yinyang yang"></div></div>
-            
-            <div id="yao3" class="yao"><div class="yinyang yang"></div></div>
-            <div id="yao2" class="yao yao-mg"><div class="yinyang yang"></div></div>
-            <div id="yao1" class="yao"><div class="yinyang yang"></div></div>
-        </div>
-        <div id="yao-detail"></div>
     </body>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/main.js"></script>
 </html>
