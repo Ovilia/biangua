@@ -1,4 +1,31 @@
 {
+    "social": {
+        "blog": "http://zhangwenli.com",
+        "twitter": "https://twitter.com/OviliaZhang",
+        "share": [
+            {
+                "link": "https://twitter.com/intent/tweet?text=Fancy Website with CSS and JavaScript for Chinese 8 Gua&url=http://goo.gl/3S8z8t&original_referer=http://zhangwenli.com/biangua&via=OviliaZhang&hashtags=CSS,JavaScript,webdesign,八卦,易经",
+                "website": "twitter"
+            }, {
+                "link": "https://www.facebook.com/sharer/sharer.php?t=Fancy Website with CSS and JavaScript for Chinese 8 Gua&u=http://zhangwenli.com/biangua/",
+                "website": "facebook"
+            }, {
+                "link": "https://plus.google.com/share?url=http://zhangwenli.com/biangua",
+                "website": "google"
+            },{
+                "link": "http://www.linkedin.com/shareArticle?mini=true&amp;title=CSS JavaScript酷炫案例：变卦，易经64卦&amp;url=http://zhangwenli.com/biangua&amp;source=http%3a%2f%2fzhangwenli.com",
+                "website": "linkedin"
+            }, {
+                "link": "http://v.t.sina.com.cn/share/share.php?title=%40Ovilia允执厥中+的CSS JavaScript 酷炫案例：变卦，易经64卦&url=http://zhangwenli.com/biangua&pic=http://zhangwenli.com/biangua/screen-capture.png",
+                "website": "weibo"
+            }, {
+                "link": "http://shuo.douban.com/!service/share?href=http://zhangwenli.com/biangua&name=http://zhangwenli.com/biangua&image=http://zhangwenli.com/biangua/screen-capture.png",
+                "website": "douban"
+            }
+        ],
+        "know_more": "http://zhangwenli.com/blog/2014/08/11/how-i-made-biangua",
+        "github": "https://github.com/Ovilia/biangua/issues"
+    },
     "gua": [{
         "gua_name": "乾",
         "gua_xiang": "111111",
