@@ -39,7 +39,7 @@ p {
     margin: 8px 0;
 }
 
-#back-title {
+.back-title {
     position: absolute;
     bottom: -72px;
     right: 0;
@@ -53,7 +53,7 @@ p {
     }
 }
 
-#page-title {
+.page-title {
     color: @clr-light;
     cursor: default;
     transition-duration: 0.5s;
@@ -81,20 +81,20 @@ p {
             opacity: 1;
         }
         
-        #page-title-more {
+        .page-title-more {
             display: block;
         }
     }
 }
 
 .social {
-    background: url('../../blog/img/social.png');
+    background: url('../img/social.png');
     background-color: @clr-light;
     width: 40px;
     height: 40px;
     transition: 1s;
     display: inline-block;
-    margin-right: 3px;
+    margin-right: 8px;
     border-bottom: none;
     border-radius: 20px;
     opacity: 0.25;
@@ -145,12 +145,12 @@ p {
     background-position: -160px 40px;
 }
 
-#page-title-more {
+.page-title-more {
     display: none;
     font-size: 12px;
 }
 
-#gua-title {
+.gua-title {
     position: absolute;
     left: @body-pd;
     bottom: @body-pd;
@@ -160,7 +160,7 @@ p {
     cursor: default;
     transition-duration: 0.5s;
     
-    #gua-detail {
+    .gua-detail {
         color: @clr-dark;
         font-size: @font-sz;
         transition-duration: 0.5s;
@@ -169,13 +169,13 @@ p {
     &:hover {
         color: @clr-lightest;
         
-        #gua-detail {
+        .gua-detail {
             color: @clr-lightest;
         }
     }
 }
 
-#gua {
+.gua {
     width: @yao-w;
     height: @gua-h;
     position: absolute;
@@ -183,20 +183,15 @@ p {
     left: 50%;
     margin-top: -@gua-h / 2;
     margin-left: -@yao-w / 2;
-    
-    .yao-split {
-        margin-bottom: @gua-half-mg;
-    }
+    list-style: none;
     
     .yao {
         height: @yao-h;
         background-color: @clr-lightest;
         cursor: pointer;
         transition-duration: 1s;
-        
-        &.yao-mg {
-            margin: @yao-mg 0;
-        }
+        position: relative;
+        margin-top: @yao-h/2;
         
         &.unhover {
             background: @clr-light;
@@ -223,13 +218,22 @@ p {
             background-color: @clr-primary;
         }
     }
+
+    .yao:first-child {
+        margin-top: 0;
+    }
+
+    .yao-split {
+        margin-bottom: @gua-half-mg;
+    }
 }
 
-#yao-detail {
-    display: none;
+.yao-detail {
     position: absolute;
+    top: 0;
     left: 50%;
     right: @body-pd;
+    width: @yao-w * 1.5;
     margin-left: @yao-w / 2 + @gua-detail-mg;
     min-height: @yao-h;
     color: @clr-lightest;
